@@ -1,0 +1,121 @@
+{% extends 'base.html.twig' %}
+{% for form in Forms  %}     
+    {% form_theme form 'bootstrap_3_layout.html.twig' %}
+{% endfor %}    
+{% block stylesheets %}    
+{% endblock %}
+
+{% block body %}
+    {% for flash_message in app.session.flashbag.get('notice') %}            
+    <div class="alert alert-info alert-dismissible" role="alert">                
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h3 style="margin:0px">
+            <span class="glyphicon glyphicon glyphicon-ok-sign"></span>&nbsp;
+            &nbspOperación realizada con éxito
+        </h3>
+        <div>
+            <ul>
+                {% set foo = flash_message|split('|') %}
+                {% for var in foo %}                            
+                <li style="margin:10px">                    
+                    {{ var }}
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>                    
+    {% endfor %}    
+
+    <div class="row">
+        <div class="col-sm-6">    
+            <div id="accordion">
+                <h3>WS-REQ-001: Buscar Término</h3>
+                <div>                                 
+                    {{ form_start(Forms['ws001']) }}        
+                    {{ form_errors(Forms['ws001']) }}         
+                    {{ form(Forms['ws001']) }}                                                                
+                    {{ form_end(Forms['ws001']) }}                                                                
+                </div>                
+                <h3>WS-REQ-002: Obtener conceptos por categoría</h3>
+                <div>
+                    {{ form_start(Forms['ws002']) }}        
+                    {{ form_errors(Forms['ws002']) }}         
+                    {{ form(Forms['ws002']) }}                                                                
+                    {{ form_end(Forms['ws002']) }} 
+                </div>
+                <h3>WS-REQ-004: Buscar términos con Perfect Match</h3>
+                <div>
+                    {{ form_start(Forms['ws004']) }}        
+                    {{ form_errors(Forms['ws004']) }}         
+                    {{ form(Forms['ws004']) }}                                                                
+                    {{ form_end(Forms['ws004']) }} 
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <form>
+                <div class="form-group">
+                  <label id="responseLabel" for="term">Respuesta:</label>
+                  <textarea id="response" type="text" class="form-control" id="term" rows="24">
+                  </textarea>
+                </div>
+            </form>
+        </div>
+    </div>
+ 
+              
+{% endblock %}
+{% block javascripts %}
+<script>      
+    
+    $forms = $( "form" );
+    
+    $( function() {        
+        $( "#accordion" ).accordion();        
+    } );            
+    
+    $forms.on( "submit", function( event ) {               
+        
+        var form = this;
+        
+        event.preventDefault(); 
+        
+        suspend(form);
+        
+        var data = {};
+        data['service'] = $(this).attr('name'); 
+        data['parameters'] = $( this ).serializeArray();    
+        
+        // TODO: Reemplazar post por ajax
+        
+        $.post("{{ path('search_call') }}", data, function(data){
+            
+            unSuspend(form);                        
+            
+            var jsonObj = JSON.parse(data);
+            var jsonPretty = JSON.stringify(jsonObj, null, '\t');
+            
+            $('#response').text(jsonPretty);
+                        
+        });                    
+    });    
+    
+    function suspend(form){
+         
+        $(form).find('button').append('<img class="loader" alt="" style=";margin-left:10px" src="{{ asset('bundles/client/images/loader-minitrans.gif') }}">');            
+        
+        $(form).find('button').attr('disabled',true);
+        
+        $('#response').text("");
+    }
+    
+    function unSuspend(form){
+         
+        $('.loader').remove();
+        
+        $(form).find('button').attr('disabled',false);
+        
+    }
+
+</script>
+{% endblock %}

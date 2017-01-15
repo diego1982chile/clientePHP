@@ -1,0 +1,42 @@
+services:
+#    monitor.example:
+#        class: Fonasa\MonitorBundle\Example
+#        arguments: ["@service_id", "plain_value", %parameter%]
+    client.authentication.login_success_handler:
+        class:  Semantikos\ClientBundle\EventListener\LoginSuccessHandler
+        arguments:  ["@router", "@security.authorization_checker", "@security.token_storage"]
+    client.authentication.logout_handler:
+        class:  Semantikos\ClientBundle\EventListener\LogoutHandler
+        arguments:  []
+    client.request_listener:
+        class: Semantikos\ClientBundle\EventListener\RequestListener
+        arguments: ["@router", "@security.authorization_checker", "@security.token_storage"]
+        tags:
+            - { name: kernel.event_listener, event: kernel.request, method: onKernelRequest  }        
+    client.response_listener:
+        class: Semantikos\ClientBundle\EventListener\ResponseListener
+        tags:
+            - { name: kernel.event_listener, event: kernel.response, method: onKernelResponse  }   
+    client.controller_listener:
+         class: Semantikos\ClientBundle\EventListener\ControllerListener
+         arguments: ["@router", "@security.authorization_checker", "@security.token_storage", "@session"]
+         tags:	
+             - { name: kernel.event_listener, event: kernel.controller, method: onKernelController  }
+    client.helper.forms:
+        class:  Semantikos\ClientBundle\Helper\FormsHelper
+        arguments: ["@form.factory", "@doctrine.orm.entity_manager", "@session", "@service_container"]      
+    client.helper.clients:
+        class:  Semantikos\ClientBundle\Helper\ClientsHelper
+        arguments: ["@service_container"]   
+    client.helper.utils:
+        class:  Semantikos\ClientBundle\Helper\UtilsHelper
+        arguments: ["@service_container"]        
+    client.helper.mapping:
+        class:  Semantikos\ClientBundle\Helper\MappingHelper
+        arguments: ["@service_container"]
+    client.twig.FormsExtension:
+        class: Semantikos\ClientBundle\Twig\FormsExtension
+        arguments:  ["@service_container"]
+        tags:
+            - { name: twig.extension }  
+            
