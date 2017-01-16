@@ -24,10 +24,8 @@ class PeticionRefSetsPorIdDescripcion
      * @param string $idDescripcion
      * @param string $idStablishment
      */
-    public function __construct($idDescripcion, $idStablishment)
-    {
-      $this->idDescripcion = $idDescripcion;
-      $this->idStablishment = $idStablishment;
+    public function __construct()
+    {      
     }
 
     /**

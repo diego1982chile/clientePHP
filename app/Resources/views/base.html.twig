@@ -323,6 +323,19 @@
                 vertical-align: middle;                
             }
             
+            .myTitleClass .ui-dialog-titlebar {
+                background:#337ab7;
+                border-color: #337ab7;
+                border-top-color: rgb(51, 122, 183);
+                border-right-color: rgb(51, 122, 183);
+                border-bottom-color: rgb(51, 122, 183);
+                border-left-color: rgb(51, 122, 183);
+            }
+            
+            .myTitleClass .ui-dialog-title {
+                color: white;
+            }
+            
             
         </style>
   </head>
@@ -365,7 +378,15 @@
              
     <div class="container">
         <div class="row">
-            <div class="col">
+            <div id="sidebar" class="col-md-2 sidebar">
+                <ul class="nav nav-sidebar">                                                                       
+                    <li id="content">
+                        {% block operaciones %}
+                        {% endblock %}                        
+                    </li>                                            
+                </ul>                            
+            </div>   
+            <div class="col-md-10">
                 {% block body %}
                 {% endblock %}
             </div>

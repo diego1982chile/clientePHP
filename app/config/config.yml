@@ -38,7 +38,7 @@ twig:
     debug:            "%kernel.debug%"
     strict_variables: "%kernel.debug%"            
     globals:
-        forms:    "@client.helper.forms"
+        search_forms:    "@client.helper.search_forms"
 
 # Doctrine Configuration
 doctrine:

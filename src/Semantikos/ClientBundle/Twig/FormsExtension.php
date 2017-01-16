@@ -2,7 +2,7 @@
 namespace Semantikos\ClientBundle\Twig;
 
 use Symfony\Component\DependencyInjection\ContainerInterface as Container;
-use Semantikos\ClientBundle\Helper\FormsHelper;
+use Semantikos\ClientBundle\Helper\SearchServiceFormsHelper;
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -31,10 +31,21 @@ class FormsExtension extends \Twig_Extension {
     public function getGlobals()
     {
         return array(
-            "Forms" => array( "ws001" => $this->container->get("client.helper.forms")->getWS001Form(),
-                              "ws002" => $this->container->get("client.helper.forms")->getWS002Form(),
-                              "ws004" => $this->container->get("client.helper.forms")->getWS004Form() 
-                            )
+            "SearchForms" => array( "ws001" => $this->container->get("client.helper.search_forms")->getWS001Form(),
+                                    "ws002" => $this->container->get("client.helper.search_forms")->getWS002Form(),
+                                    "ws004" => $this->container->get("client.helper.search_forms")->getWS004Form(), 
+                                    "ws005" => $this->container->get("client.helper.search_forms")->getWS005Form(), 
+                                    "ws007" => $this->container->get("client.helper.search_forms")->getWS007Form(),
+                                    "ws008" => $this->container->get("client.helper.search_forms")->getWS008Form(),
+                                    "ws009" => $this->container->get("client.helper.search_forms")->getWS009Form(),
+                                    "ws022" => $this->container->get("client.helper.search_forms")->getWS022Form(),
+                                    "ws023" => $this->container->get("client.helper.search_forms")->getWS023Form(),
+                                    "ws024" => $this->container->get("client.helper.search_forms")->getWS024Form(),
+                                    "ws025" => $this->container->get("client.helper.search_forms")->getWS025Form(),
+                            ),
+            "EntranceForms" => array( "ws001" => $this->container->get("client.helper.search_forms")->getWS001Form(),
+                                      "ws002" => $this->container->get("client.helper.search_forms")->getWS002Form(),
+            )
         );
     }
 

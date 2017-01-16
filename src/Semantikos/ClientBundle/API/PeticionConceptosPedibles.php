@@ -29,10 +29,8 @@ class PeticionConceptosPedibles
      * @param string $pedible
      * @param string $idEstablecimiento
      */
-    public function __construct($pedible, $idEstablecimiento)
-    {
-      $this->pedible = $pedible;
-      $this->idEstablecimiento = $idEstablecimiento;
+    public function __construct()
+    {      
     }
 
     /**

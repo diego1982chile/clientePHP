@@ -19,10 +19,8 @@ class PeticionConceptosPorRefSet
      * @param string $nombreRefSet
      * @param string $idEstablecimiento
      */
-    public function __construct($nombreRefSet, $idEstablecimiento)
-    {
-      $this->nombreRefSet = $nombreRefSet;
-      $this->idEstablecimiento = $idEstablecimiento;
+    public function __construct()
+    {      
     }
 
     /**

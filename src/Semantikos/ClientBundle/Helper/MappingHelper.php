@@ -3,6 +3,9 @@ namespace Semantikos\ClientBundle\Helper;
 
 use Semantikos\ClientBundle\API\PeticionPorCategoria;
 use Semantikos\ClientBundle\API\PeticionBuscarTermino;
+use Semantikos\ClientBundle\API\PeticionConceptosPedibles;
+use Semantikos\ClientBundle\API\PeticionRefSetsPorIdDescripcion;
+use Semantikos\ClientBundle\API\PeticionConceptosPorRefSet;
 
 use Symfony\Component\DependencyInjection\ContainerInterface as Container;
  
@@ -39,6 +42,46 @@ class MappingHelper {
         $peticionBuscarTermino->setIdEstablecimiento($parameters['idEstablecimiento']);
         
         return array( 'peticionBuscarTermino' => $peticionBuscarTermino );
+    }
+    
+    public function mapWS005Parameters($parameters = null){                       
+        
+        $peticionConceptosPedibles = new PeticionConceptosPedibles();
+        
+        $peticionConceptosPedibles->setPedible($parameters['pedible']);                
+        $peticionConceptosPedibles->setNombreCategoria(explode(',',$parameters['categorias']));
+        $peticionConceptosPedibles->setNombreRefSet(explode(',',$parameters['refSets']));
+        $peticionConceptosPedibles->setIdEstablecimiento($parameters['idEstablecimiento']);
+        
+        return array( 'peticionObtenerTerminosPedibles' => $peticionConceptosPedibles );
+    }
+    
+    public function mapWS007Parameters($parameters = null){                       
+        
+        $peticionRefSetsPorIdDescripcion = new PeticionRefSetsPorIdDescripcion();
+        
+        $peticionRefSetsPorIdDescripcion->setIdDescripcion($parameters['descriptionId']);                
+        $peticionRefSetsPorIdDescripcion->setIncluyeEstablecimientos($parameters['incluyeEstablecimiento']);
+        $peticionRefSetsPorIdDescripcion->setIdStablishment($parameters['idEstablecimiento']);        
+        
+        return array( 'peticionRefSetsPorIdDescripcion' => $peticionRefSetsPorIdDescripcion );
+    }
+    
+    public function mapWS008Parameters($parameters = null){                                          
+        
+        return array( 'incluyeEstablecimientos' => $parameters['incluyeEstablecimiento'],
+                      'idStablishment' => $parameters['idEstablecimiento']
+                    );
+    }
+    
+    public function mapWS022Parameters($parameters = null){                       
+        
+        $peticionConceptosPorRefSet = new PeticionConceptosPorRefSet();
+        
+        $peticionConceptosPorRefSet->setNombreRefSet($parameters['refSet']);        
+        $peticionConceptosPorRefSet->setIdEstablecimiento($parameters['idEstablecimiento']);        
+        
+        return array( 'peticionConceptosPorRefSet' => $peticionConceptosPorRefSet );
     }
         
 }                

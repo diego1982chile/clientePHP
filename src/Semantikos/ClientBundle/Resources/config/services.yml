@@ -22,9 +22,12 @@ services:
          arguments: ["@router", "@security.authorization_checker", "@security.token_storage", "@session"]
          tags:	
              - { name: kernel.event_listener, event: kernel.controller, method: onKernelController  }
-    client.helper.forms:
-        class:  Semantikos\ClientBundle\Helper\FormsHelper
+    client.helper.search_forms:
+        class:  Semantikos\ClientBundle\Helper\SearchServiceFormsHelper
         arguments: ["@form.factory", "@doctrine.orm.entity_manager", "@session", "@service_container"]      
+    client.helper.entrance_forms:
+        class:  Semantikos\ClientBundle\Helper\EntranceServiceFormsHelper
+        arguments: ["@form.factory", "@doctrine.orm.entity_manager", "@session", "@service_container"]              
     client.helper.clients:
         class:  Semantikos\ClientBundle\Helper\ClientsHelper
         arguments: ["@service_container"]   
