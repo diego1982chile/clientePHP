@@ -37,7 +37,7 @@ class ControllerListener
         $routeName = $request->getPathInfo('_route');  
         
         $tokens=explode('/',$routeName);
-        $route=end($tokens);                
+        $route=end($tokens);                    
         
         switch ($route){
             case 'SearchServices':

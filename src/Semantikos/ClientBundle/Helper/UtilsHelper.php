@@ -40,10 +40,10 @@ class UtilsHelper {
         $params_url='';
         
         foreach($params_array as $key => $value){                
-            $params_url = $params_url.'&'.$key.'='.$value;
+            $params_url = $params_url.$key.'='.$value.'&';
         }  
         
-        return $params_url;
+        return substr($params_url, 0, -1);
     }
     
 }                

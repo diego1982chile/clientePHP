@@ -39,6 +39,7 @@ twig:
     strict_variables: "%kernel.debug%"            
     globals:
         search_forms:    "@client.helper.search_forms"
+        entrance_forms:  "@client.helper.entrance_forms"
 
 # Doctrine Configuration
 doctrine:
@@ -117,6 +118,8 @@ be_simple_soap:
     entrance:
         # required
         wsdl: http://192.168.0.226:8080/ws/ServicioDeIngreso?wsdl              
+        classmap:
+                PeticionCodificacionDeNuevoTermino: Semantikos\ClientBundle\API\PeticionCodificacionDeNuevoTermino                
     relationship:
         # required
         wsdl: http://192.168.0.226:8080/ws/ServicioDeRelacionados?wsdl              

@@ -16,9 +16,14 @@ search_call:
     methods:  [GET,POST]    
     
 entrance_index:
-    path:     /SearchServices
+    path:     /EntranceServices
     defaults: { _controller: "SemantikosClientBundle:EntranceServices:index" }
     methods:  [GET,POST]
+    
+entrance_call:
+    path:     /EntranceServices/call
+    defaults: { _controller: "SemantikosClientBundle:EntranceServices:call" }
+    methods:  [GET,POST]     
     
 relationship_index:
     path:     /SearchServices

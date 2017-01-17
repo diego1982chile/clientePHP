@@ -6,16 +6,11 @@ use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
-use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
-use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\FormType;
-use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\HttpFoundation\Session\Session;
-
-use Semantikos\ClientBundle\Entity\Category;
-use Semantikos\ClientBundle\Entity\RefSet;
-use Symfony\Component\Form\FormEvents;
 
 use Doctrine\ORM\EntityManager;
 
@@ -42,171 +37,39 @@ class EntranceServiceFormsHelper {
         $this->container = $container;
     }
         
-    public function getWS001Form(){                                
+    public function getWS030Form(){                                
         
-        return $ws001Form = $this->formFactory->createNamedBuilder('ws001', FormType::class, null)                      
-            ->setAction($this->container->get('router')->generate('search_call'))                
+        return $ws030Form = $this->formFactory->createNamedBuilder('ws030', FormType::class, null)                      
+            ->setAction($this->container->get('router')->generate('entrance_call'))                
             ->setMethod('POST')                    
-            ->add('termino', TextType::class)            
-            ->add('categorias', TextType::class, array(
-                  'required' => false,                
-                  'attr' => array( 'placeholder' => "Ingrese las Categorías separadas por ','")  
-            ))
-            ->add('refSets', TextType::class, array(
-                  'required' => false,
-                  'attr' => array( 'placeholder' => "Ingrese los RefSets separados por ','")
-            )) 
-            ->add('idEstablecimiento', NumberType::class)
+            ->add('descriptionId', TextType::class)                        
             ->add('call', SubmitType::class, array('label' => 'Invocar WS', 'attr' => array('class' => 'btn btn-primary')))                                  
             ->getForm()->createView();                    
-    }
+    }    
     
-    public function getWS002Form(){                                
+    public function getWS031Form(){                                
         
-        return $ws002Form = $this->formFactory->createNamedBuilder('ws002',FormType::class, null)
-            ->setAction($this->container->get('router')->generate('search_call'))
-            ->setMethod('POST')            
-            ->add('nombreCategoria', TextType::class)            
-            ->add('idEstablecimiento', NumberType::class)                              
-            ->add('call', SubmitType::class, array('label' => 'Invocar WS', 'attr' => array('class' => 'btn btn-primary')))
-            ->getForm()->createView();                    
-    }
-    
-    public function getWS004Form(){                                
-        
-        return $ws004Form = $this->formFactory->createNamedBuilder('ws004',FormType::class, null)
-            ->setAction($this->container->get('router')->generate('search_call'))
-            ->setMethod('POST')        
-            ->add('termino', TextType::class)            
-            ->add('categorias', TextType::class, array(
-                  'required' => false,
-                  'attr' => array( 'placeholder' => "Ingrese las Categorías separadas por ','")                  
-            ))
-            ->add('refSets', TextType::class, array(
-                  'required' => false,
-                  'attr' => array( 'placeholder' => "Ingrese los RefSets separados por ','")
-            )) 
-            ->add('idEstablecimiento', NumberType::class)
-            ->add('call', SubmitType::class, array('label' => 'Invocar WS', 'attr' => array('class' => 'btn btn-primary')))  
-            ->getForm()->createView();                    
-    }
-    
-    public function getWS005Form(){                                
-        
-        return $ws005Form = $this->formFactory->createNamedBuilder('ws005',FormType::class, null)
-            ->setAction($this->container->get('router')->generate('search_call'))
+        return $ws031Form = $this->formFactory->createNamedBuilder('ws031', FormType::class, null)                      
+            ->setAction($this->container->get('router')->generate('entrance_call'))                
             ->setMethod('POST')                    
-            ->add('pedible', ChoiceType::class, array(
-                  'choices' => array('Si' => 'Si', 'No' => 'No'), 
-                  'choices_as_values' => true, 
-                  'expanded' => true,
-                  'data' => 'Si'                  
-            ))
-            ->add('categorias', TextType::class, array(
-                  'required' => false,
-                  'attr' => array( 'placeholder' => "Ingrese las Categorías separadas por ','")
-            ))
-            ->add('refSets', TextType::class, array(
-                  'required' => false,
-                  'attr' => array( 'placeholder' => "Ingrese los RefSets separados por ','")
-            )) 
-            ->add('idEstablecimiento', NumberType::class)
-            ->add('call', SubmitType::class, array('label' => 'Invocar WS', 'attr' => array('class' => 'btn btn-primary')))  
-            ->getForm()->createView();                    
-    }
-    
-    public function getWS007Form(){                                
-        
-        return $ws004Form = $this->formFactory->createNamedBuilder('ws007',FormType::class, null)
-            ->setAction($this->container->get('router')->generate('search_call'))
-            ->setMethod('POST')                    
-            ->add('descriptionID', TextType::class, array('required' => false))
-            ->add('incluyeEstablecimiento', ChoiceType::class, array(
+            ->add('termino', TextType::class)                        
+            ->add('categoriaPropuesta', TextType::class)
+            ->add('nombreProfesional', TextType::class)
+            ->add('mail', EmailType::class)
+            ->add('profesion', TextType::class)
+            ->add('especialidad', TextType::class)
+            ->add('subespecialidad', TextType::class)
+            ->add('establecimiento', TextType::class)
+            ->add('sensibleMayusculas', ChoiceType::class, array(
                   'choices' => array('Si' => true, 'No' => false), 
                   'choices_as_values' => true, 
                   'expanded' => true,
-                  'data' => true                  
-            ))            
-            ->add('idEstablecimiento', NumberType::class)
-            ->add('call', SubmitType::class, array('label' => 'Invocar WS', 'attr' => array('class' => 'btn btn-primary')))  
+                  'data' => false                  
+            ))                   
+            ->add('observacion', TextareaType::class)
+            ->add('tipoDescripcionPropuesta', TextType::class)
+            ->add('call', SubmitType::class, array('label' => 'Invocar WS', 'attr' => array('class' => 'btn btn-primary')))                                  
             ->getForm()->createView();                    
-    }
+    }       
     
-    public function getWS008Form(){                                
-        
-        return $ws004Form = $this->formFactory->createNamedBuilder('ws008',FormType::class, null)
-            ->setAction($this->container->get('router')->generate('search_call'))
-            ->setMethod('POST')                                
-            ->add('incluyeEstablecimiento', ChoiceType::class, array(
-                  'choices' => array('Si' => true, 'No' => false), 
-                  'choices_as_values' => true, 
-                  'expanded' => true,
-                  'data' => true                  
-            ))            
-            ->add('idEstablecimiento', NumberType::class)
-            ->add('call', SubmitType::class, array('label' => 'Invocar WS', 'attr' => array('class' => 'btn btn-primary')))  
-            ->getForm()->createView();                    
-    }
-    
-    public function getWS009Form(){                                
-        
-        return $ws004Form = $this->formFactory->createNamedBuilder('ws009',FormType::class, null)
-            ->setAction($this->container->get('router')->generate('search_call'))
-            ->setMethod('POST')         
-            ->add('descriptionIds', TextType::class, array( 
-                  'attr' => array( 'placeholder' => "Ingrese las DescriptionIDs separados por ','") 
-            ))
-            ->add('incluyeEstablecimiento', ChoiceType::class, array(
-                  'choices' => array('Si' => true, 'No' => false), 
-                  'choices_as_values' => true, 
-                  'expanded' => true,
-                  'data' => true                  
-            ))            
-            ->add('idEstablecimiento', NumberType::class)
-            ->add('call', SubmitType::class, array('label' => 'Invocar WS', 'attr' => array('class' => 'btn btn-primary')))  
-            ->getForm()->createView();                    
-    }
-    
-    public function getWS022Form(){                                
-        
-        return $ws022Form = $this->formFactory->createNamedBuilder('ws022',FormType::class, null)
-            ->setAction($this->container->get('router')->generate('search_call'))
-            ->setMethod('POST')         
-            ->add('refSet', TextType::class)                           
-            ->add('idEstablecimiento', NumberType::class)
-            ->add('call', SubmitType::class, array('label' => 'Invocar WS', 'attr' => array('class' => 'btn btn-primary')))  
-            ->getForm()->createView();                    
-    }
-    
-    public function getWS023Form(){                                
-        
-        return $ws023Form = $this->formFactory->createNamedBuilder('ws023',FormType::class, null)
-            ->setAction($this->container->get('router')->generate('search_call'))
-            ->setMethod('POST')         
-            ->add('refSet', TextType::class)                           
-            ->add('idEstablecimiento', NumberType::class)
-            ->add('call', SubmitType::class, array('label' => 'Invocar WS', 'attr' => array('class' => 'btn btn-primary')))  
-            ->getForm()->createView();                    
-    }
-    
-    public function getWS024Form(){                                
-        
-        return $ws024Form = $this->formFactory->createNamedBuilder('ws024',FormType::class, null)
-            ->setAction($this->container->get('router')->generate('search_call'))
-            ->setMethod('POST')                     
-            ->add('idEstablecimiento', NumberType::class)
-            ->add('call', SubmitType::class, array('label' => 'Invocar WS', 'attr' => array('class' => 'btn btn-primary')))  
-            ->getForm()->createView();                    
-    }
-    
-    public function getWS025Form(){                                
-        
-        return $ws024Form = $this->formFactory->createNamedBuilder('ws025',FormType::class, null)
-            ->setAction($this->container->get('router')->generate('search_call'))
-            ->setMethod('POST')         
-            ->add('nombreAbreviadoCrossmapSet', TextType::class)    
-            ->add('idEstablecimiento', NumberType::class)
-            ->add('call', SubmitType::class, array('label' => 'Invocar WS', 'attr' => array('class' => 'btn btn-primary')))  
-            ->getForm()->createView();                    
-    }
 }                

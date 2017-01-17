@@ -359,8 +359,8 @@
                 <a href="{{ path('search_index') }}">Servicios de Búsqueda</a></li>
             <li class="{% if app.session.get('active') == 'entrance_index'%}active{% endif %}">
                 <a href="{{ path('entrance_index') }}">Servicios de Ingreso</a></li>                        
-            <li class="{% if app.session.get('active') == 'entrance_index'%}active{% endif %}">
-                <a href="{{ path('entrance_index') }}">Servicios de Relacionados</a></li>     
+            <li class="{% if app.session.get('active') == 'relationship_index'%}active{% endif %}">
+                <a href="{{ path('relationship_index') }}">Servicios de Relacionados</a></li>     
           </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li class="dropdown">

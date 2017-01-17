@@ -13,7 +13,7 @@ use Semantikos\ClientBundle\API\RespuestaRefSets;
  *
  * @author diego
  */
-class ClientsHelper {
+class SearchServiceClientsHelper {
     //put your code here    
     private $container;
     
@@ -35,36 +35,29 @@ class ClientsHelper {
         $this->soapClient = $builder->build();            
         $this->restClient = $this->container->get('circle.restclient');
     }
-          
-    public function callWS001($params_array = null){
+                  
+    public function callWS001($params_array = null){          
         
-        $ch=curl_init();
+        //$url = "http://www.minsal.cl/semantikos/ws/ServicioDeBusqueda?";                
         
-        //$url = "http://www.minsal.cl/semantikos/ws/ServicioDeBusqueda?";
+        $url = "http://192.168.0.226:8080/ws/ServicioDeBusqueda?";                
         
-        $url = "http://192.168.0.226/semantikos/ws/ServicioDeBusqueda?";                
+        $url= $url.$this->container->get('client.helper.utils')->serializeParametersURL($params_array);                  
         
-        $params= $this->container->get('client.helper.utils')->serializeParametersURL($params_array);                                                  
-                
-        curl_setopt($ch, CURLOPT_URL, $url);
-        curl_setopt($ch, CURLOPT_POST, 1);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, $params);
-
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-
-        $server_output = curl_exec ($ch);
+        $response;          
         
-        var_dump($server_output);
+        try {
+            $response = $this->restClient->get($url);            
+        } catch (Exception $ex) {
+            return json_encode($ex);
+        }                      
         
-        curl_close ($ch);
-
-        return new Response($server_output);
-        
-    }
+        return $response;        
+    }    
 
     public function callWS002($params_array = null){                                                                        
         
-        $peticion = $this->container->get('client.helper.mapping')->mapWS002Parameters($params_array);                                                                                                                                                                                                                                   
+        $peticion = $this->container->get('client.helper.search_mapping')->mapWS002Parameters($params_array);                                                                                                                                                                                                                                   
         
         try {
             $result = $this->soapClient->conceptosPorCategoria($peticion);                    
@@ -77,7 +70,7 @@ class ClientsHelper {
     
     public function callWS004($params_array = null){                                                        
                                                                               
-        $peticion = $this->container->get('client.helper.mapping')->mapWS004Parameters($params_array);                                                  
+        $peticion = $this->container->get('client.helper.search_mapping')->mapWS004Parameters($params_array);                                                  
         
         try {
             $result = $this->soapClient->buscarTruncatePerfect($peticion);                    
@@ -90,7 +83,7 @@ class ClientsHelper {
     
     public function callWS005($params_array = null){                                                        
                                                                            
-        $peticion = $this->container->get('client.helper.mapping')->mapWS005Parameters($params_array);                                                
+        $peticion = $this->container->get('client.helper.search_mapping')->mapWS005Parameters($params_array);                                                
         
         try {
             $result = $this->soapClient->obtenerTerminosPedibles($peticion);                    
@@ -103,7 +96,7 @@ class ClientsHelper {
     
     public function callWS007($params_array = null){                                                                                                                              
         
-        $peticion = $this->container->get('client.helper.mapping')->mapWS007Parameters($params_array);                                                
+        $peticion = $this->container->get('client.helper.search_mapping')->mapWS007Parameters($params_array);                                                
         
         try {
             $result = $this->soapClient->refSetsPorIdDescripcion($peticion);                    
@@ -116,7 +109,7 @@ class ClientsHelper {
     
     public function callWS008($params_array = null){                                                                                                                                
         
-        $peticion = $this->container->get('client.helper.mapping')->mapWS008Parameters($params_array);                                                
+        $peticion = $this->container->get('client.helper.search_mapping')->mapWS008Parameters($params_array);                                                
         
         try {
             $result = $this->soapClient->listaRefSet($peticion);                    
@@ -156,7 +149,7 @@ class ClientsHelper {
     
     public function callWS022($params_array = null){                                 
         
-        $peticion = $this->container->get('client.helper.mapping')->mapWS022Parameters($params_array);                                                
+        $peticion = $this->container->get('client.helper.search_mapping')->mapWS022Parameters($params_array);                                                
         
         try {
             $result = $this->soapClient->conceptosPorRefSet($peticion);                    
@@ -169,7 +162,7 @@ class ClientsHelper {
     
     public function callWS023($params_array = null){                                                                         
         
-        $peticion = $this->container->get('client.helper.mapping')->mapWS022Parameters($params_array);                                                      
+        $peticion = $this->container->get('client.helper.search_mapping')->mapWS022Parameters($params_array);                                                      
         
         try {
             $result = $this->soapClient->conceptosPorRefSet($peticion);                    
@@ -202,28 +195,4 @@ class ClientsHelper {
         return json_encode($result);
     }
     
-    /*
-    public function callWS001($params_array = null){
-        
-        //$url = "http://www.minsal.cl/semantikos/ws/ServicioDeBusqueda?";
-        
-        $url = "http://192.168.0.226/semantikos/ws/ServicioDeBusqueda?";
-        
-        $response;
-        
-        $url= $url.$this->container->get('client.helper.utils')->serializeParametersURL($params_array);                                  
-        
-        $restClient = $this->container->get('circle.restclient');
-        
-        try {
-            $response = $restClient->get($url);            
-        } catch (Exception $ex) {
-            $logger->error('An error occurred');
-        }        
-        
-        var_dump($url);
-        
-        return new Response($response);        
-    }
-    */
 }                

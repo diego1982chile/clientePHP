@@ -43,8 +43,8 @@ class FormsExtension extends \Twig_Extension {
                                     "ws024" => $this->container->get("client.helper.search_forms")->getWS024Form(),
                                     "ws025" => $this->container->get("client.helper.search_forms")->getWS025Form(),
                             ),
-            "EntranceForms" => array( "ws001" => $this->container->get("client.helper.search_forms")->getWS001Form(),
-                                      "ws002" => $this->container->get("client.helper.search_forms")->getWS002Form(),
+            "EntranceForms" => array( "ws030" => $this->container->get("client.helper.entrance_forms")->getWS030Form(),
+                                      "ws031" => $this->container->get("client.helper.entrance_forms")->getWS031Form(),
             )
         );
     }
@@ -57,7 +57,8 @@ class FormsExtension extends \Twig_Extension {
      public function getForms()
      {
         return array(
-            new \Twig_Filter_Function('Forms', array($this, 'Forms')),
+            new \Twig_Filter_Function('SearchForms', array($this, 'SearchForms')),
+            new \Twig_Filter_Function('EntranceForms', array($this, 'EntranceForms')),
         );
     } 
 }

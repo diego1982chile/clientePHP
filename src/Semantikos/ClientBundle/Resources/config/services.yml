@@ -21,22 +21,28 @@ services:
          class: Semantikos\ClientBundle\EventListener\ControllerListener
          arguments: ["@router", "@security.authorization_checker", "@security.token_storage", "@session"]
          tags:	
-             - { name: kernel.event_listener, event: kernel.controller, method: onKernelController  }
-    client.helper.search_forms:
-        class:  Semantikos\ClientBundle\Helper\SearchServiceFormsHelper
-        arguments: ["@form.factory", "@doctrine.orm.entity_manager", "@session", "@service_container"]      
+             - { name: kernel.event_listener, event: kernel.controller, method: onKernelController  }         
     client.helper.entrance_forms:
         class:  Semantikos\ClientBundle\Helper\EntranceServiceFormsHelper
-        arguments: ["@form.factory", "@doctrine.orm.entity_manager", "@session", "@service_container"]              
-    client.helper.clients:
-        class:  Semantikos\ClientBundle\Helper\ClientsHelper
+        arguments: ["@form.factory", "@doctrine.orm.entity_manager", "@session", "@service_container"] 
+    client.helper.entrance_clients:
+        class:  Semantikos\ClientBundle\Helper\EntranceServiceClientsHelper
         arguments: ["@service_container"]   
+    client.helper.entrance_mapping:
+        class:  Semantikos\ClientBundle\Helper\EntranceServiceMappingHelper
+        arguments: ["@service_container"]          
+    client.helper.search_forms:
+        class:  Semantikos\ClientBundle\Helper\SearchServiceFormsHelper
+        arguments: ["@form.factory", "@doctrine.orm.entity_manager", "@session", "@service_container"]         
+    client.helper.search_clients:
+        class:  Semantikos\ClientBundle\Helper\SearchServiceClientsHelper
+        arguments: ["@service_container"]   
+    client.helper.search_mapping:
+        class:  Semantikos\ClientBundle\Helper\SearchServiceMappingHelper
+        arguments: ["@service_container"]        
     client.helper.utils:
         class:  Semantikos\ClientBundle\Helper\UtilsHelper
-        arguments: ["@service_container"]        
-    client.helper.mapping:
-        class:  Semantikos\ClientBundle\Helper\MappingHelper
-        arguments: ["@service_container"]
+        arguments: ["@service_container"]            
     client.twig.FormsExtension:
         class: Semantikos\ClientBundle\Twig\FormsExtension
         arguments:  ["@service_container"]

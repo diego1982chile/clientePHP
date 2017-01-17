@@ -1,4 +1,5 @@
 <?php
+
 namespace Semantikos\ClientBundle\Helper;
 
 use Semantikos\ClientBundle\API\PeticionPorCategoria;
@@ -15,7 +16,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface as Container;
  *
  * @author diego
  */
-class MappingHelper {
+class SearchServiceMappingHelper {
     //put your code here    
     private $container;
 
