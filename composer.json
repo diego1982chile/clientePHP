@@ -34,7 +34,8 @@
         "ci/restclientbundle": "^2.0",
         "symfony/twig-bundle": "~3.0",
         "besimple/soap": "0.2.*@dev",
-        "wsdl2phpgenerator/wsdl2phpgenerator": "^3.4"
+        "wsdl2phpgenerator/wsdl2phpgenerator": "^3.4",
+        "jms/serializer-bundle": "^1.1"
     },
     "require-dev": {
         "sensio/generator-bundle": "^3.0",

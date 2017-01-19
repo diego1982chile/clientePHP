@@ -209,4 +209,49 @@ class SearchServiceFormsHelper {
             ->add('call', SubmitType::class, array('label' => 'Invocar WS', 'attr' => array('class' => 'btn btn-primary')))  
             ->getForm()->createView();                    
     }
+    
+    public function getWS026Form(){                                
+        
+        return $ws026Form = $this->formFactory->createNamedBuilder('ws026',FormType::class, null)
+            
+            ->setAction($this->container->get('router')->generate('search_call'))
+            ->setMethod('POST')         
+            ->add('descriptionId', TextType::class, array( 
+                  'required' => false           
+            ))    
+            ->add('conceptId', TextType::class, array( 
+                  'required' => false
+            ))
+            ->add('idEstablecimiento', NumberType::class)            
+            ->add('call', SubmitType::class, array('label' => 'Invocar WS', 'attr' => array('class' => 'btn btn-primary')))              
+            ->getForm()->createView();                    
+    }
+    
+    public function getWS027Form(){                                
+        
+        return $ws027Form = $this->formFactory->createNamedBuilder('ws027',FormType::class, null)
+            
+            ->setAction($this->container->get('router')->generate('search_call'))
+            ->setMethod('POST')         
+            ->add('descriptionId', TextType::class, array( 
+                  'required' => false           
+            ))    
+            ->add('conceptId', TextType::class, array( 
+                  'required' => false
+            ))
+            ->add('idEstablecimiento', NumberType::class)            
+            ->add('call', SubmitType::class, array('label' => 'Invocar WS', 'attr' => array('class' => 'btn btn-primary')))              
+            ->getForm()->createView();                    
+    }
+    
+    public function getWS028Form(){                                
+        
+        return $ws028Form = $this->formFactory->createNamedBuilder('ws028',FormType::class, null)
+            ->setAction($this->container->get('router')->generate('search_call'))
+            ->setMethod('POST')         
+            ->add('descriptionId', TextType::class)    
+            ->add('idEstablecimiento', NumberType::class)
+            ->add('call', SubmitType::class, array('label' => 'Invocar WS', 'attr' => array('class' => 'btn btn-primary')))  
+            ->getForm()->createView();                    
+    }
 }                

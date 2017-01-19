@@ -39,7 +39,16 @@ services:
         arguments: ["@service_container"]   
     client.helper.search_mapping:
         class:  Semantikos\ClientBundle\Helper\SearchServiceMappingHelper
-        arguments: ["@service_container"]        
+        arguments: ["@service_container"]    
+    client.helper.relationship_forms:
+        class:  Semantikos\ClientBundle\Helper\RelationshipServiceFormsHelper
+        arguments: ["@form.factory", "@doctrine.orm.entity_manager", "@session", "@service_container"]                 
+    client.helper.relationship_clients:
+        class:  Semantikos\ClientBundle\Helper\RelationshipServiceClientsHelper
+        arguments: ["@service_container"]   
+    client.helper.relationship_mapping:
+        class:  Semantikos\ClientBundle\Helper\RelationshipServiceMappingHelper
+        arguments: ["@service_container"]            
     client.helper.utils:
         class:  Semantikos\ClientBundle\Helper\UtilsHelper
         arguments: ["@service_container"]            

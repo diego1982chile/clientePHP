@@ -26,6 +26,11 @@ entrance_call:
     methods:  [GET,POST]     
     
 relationship_index:
-    path:     /SearchServices
+    path:     /RelationshipServices
     defaults: { _controller: "SemantikosClientBundle:RelationshipServices:index" }
+    methods:  [GET,POST]    
+    
+relationship_call:
+    path:     /RelationshipServices/call
+    defaults: { _controller: "SemantikosClientBundle:RelationshipServices:call" }
     methods:  [GET,POST]    

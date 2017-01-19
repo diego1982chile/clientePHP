@@ -8,6 +8,7 @@ use Symfony\Component\HttpFoundation\Request;
 
 use Symfony\Component\HttpFoundation\Response;
 
+
 class SearchServicesController extends Controller
 {
     public function indexAction()
@@ -19,10 +20,17 @@ class SearchServicesController extends Controller
     {        
         $operation = $request->request->get('operation');
         $parameters = $request->request->get('parameters');  
-        $response;                
+        $response;                              
         
         $ws_params = $this->container->get('client.helper.utils')->decodeParameters($parameters);                
         
+        $requestStatus = $this->container->get('client.helper.utils')->validate($operation, $ws_params);                                
+        
+        if($requestStatus->isError()) {            
+            return new Response($requestStatus->getMessage(), 500);
+            return;
+        }
+                        
         switch($operation) {
             case 'ws001':                
                 return $this->container->get('client.helper.search_clients')->callWS001($ws_params);                
@@ -56,7 +64,16 @@ class SearchServicesController extends Controller
                 break;              
             case 'ws025':
                 $response = $this->container->get('client.helper.search_clients')->callWS025($ws_params);
-                break;                          
+                break;       
+            case 'ws026':
+                $response = $this->container->get('client.helper.search_clients')->callWS026($ws_params);
+                break;                   
+            case 'ws027':
+                $response = $this->container->get('client.helper.search_clients')->callWS027($ws_params);
+                break;                               
+            case 'ws028':
+                $response = $this->container->get('client.helper.search_clients')->callWS028($ws_params);
+                break;              
         }                                                
         
         return new Response($response);

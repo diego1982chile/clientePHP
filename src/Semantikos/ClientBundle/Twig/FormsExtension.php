@@ -42,9 +42,18 @@ class FormsExtension extends \Twig_Extension {
                                     "ws023" => $this->container->get("client.helper.search_forms")->getWS023Form(),
                                     "ws024" => $this->container->get("client.helper.search_forms")->getWS024Form(),
                                     "ws025" => $this->container->get("client.helper.search_forms")->getWS025Form(),
+                                    "ws026" => $this->container->get("client.helper.search_forms")->getWS026Form(),
+                                    "ws027" => $this->container->get("client.helper.search_forms")->getWS027Form(),
+                                    "ws028" => $this->container->get("client.helper.search_forms")->getWS028Form(),
                             ),
             "EntranceForms" => array( "ws030" => $this->container->get("client.helper.entrance_forms")->getWS030Form(),
                                       "ws031" => $this->container->get("client.helper.entrance_forms")->getWS031Form(),
+            ),
+            "RelationshipForms" => array( "ws006" => $this->container->get("client.helper.relationship_forms")->getWS006Form(),                                      
+                                          "ws010" => $this->container->get("client.helper.relationship_forms")->getWS010Form(),
+                                          "ws010_01" => $this->container->get("client.helper.relationship_forms")->getWS010_01Form(),
+                                          "ws011" => $this->container->get("client.helper.relationship_forms")->getWS011Form(),
+                                          "ws011_01" => $this->container->get("client.helper.relationship_forms")->getWS011_01Form(),
             )
         );
     }

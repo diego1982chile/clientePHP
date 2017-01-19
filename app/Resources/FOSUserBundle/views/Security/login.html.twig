@@ -2,9 +2,14 @@
 
 {% block fos_user_content %}
 
-
+    <div style="text-align: center">
+        <h2 style="color: #e2eef6cc;">
+            Semantikos - Cliente WebService [PHP]
+        </h2>
+    </div>
+    <br>
 <form class="form-signin text-center" action="{{ path("fos_user_security_check") }}" method="post">
-    <h2 class="form-signin-heading text-center">Ingreso</h2>
+    <h3 class="form-signin-heading text-center" style="color: #009cffb3"><i class="fa fa-user"></i>Ingreso</h3>
 	
 	<input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
 
@@ -25,7 +30,8 @@
                 {{ error.messageKey|trans(error.messageData, 'security') }}
             </div>
 	{% endif %}
-    <a target="_blank" href="http://www.minsal.cl"><img style="padding-top:10px;max-width:100%;max-height:100%;" src="{{ asset('bundles/client/images/MINSAL-CENABAST.png') }}" alt="MINSAL"></a>
+        <br>    
+        <br>
     <a target="_blank" style="font-size:0.9em" href="#">Navegadores Soportados</a>
      - 
     <a target="_blank" style="font-size:0.9em" href="#">Privacidad</a>

@@ -195,4 +195,43 @@ class SearchServiceClientsHelper {
         return json_encode($result);
     }
     
+    public function callWS026($params_array = null){                       
+        
+        $peticion = $this->container->get('client.helper.search_mapping')->mapWS026Parameters($params_array);                                                      
+        
+        try {
+            $result = $this->soapClient->crossMapsIndirectosPorDescripcionIDorConceptID($peticion);                    
+        } catch (\SoapFault $soapFault) {
+            return json_encode($soapFault);
+        }
+                        
+        return json_encode($result);
+    }
+    
+    public function callWS027($params_array = null){                       
+        
+        $peticion = $this->container->get('client.helper.search_mapping')->mapWS027Parameters($params_array);                  
+        
+        try {
+            $result = $this->soapClient->crossMapsDirectosPorIDDescripcion($peticion);                    
+        } catch (\SoapFault $soapFault) {
+            return json_encode($soapFault);
+        }
+                        
+        return json_encode($result);
+    }
+    
+    public function callWS028($params_array = null){                       
+        
+        $peticion = $this->container->get('client.helper.search_mapping')->mapWS028Parameters($params_array);                                                      
+        
+        try {
+            $result = $this->soapClient->conceptoPorIdDescripcion($peticion);                    
+        } catch (\SoapFault $soapFault) {
+            return json_encode($soapFault);
+        }
+                        
+        return json_encode($result);
+    }
+    
 }                

@@ -2,68 +2,85 @@
 
 namespace Semantikos\ClientBundle\API;
 
+use JMS\Serializer\Annotation\SerializedName;
+use JMS\Serializer\Annotation\Type;
+
+
 class PeticionCodificacionDeNuevoTermino
 {
 
     /**
      * @var string $establecimiento
+     * @Type("string")
      */
-    protected $establecimiento = null;
+    public $establecimiento = null;
 
     /**
      * @var string $idConcepto
+     * @Type("string")
      */
-    protected $idConcepto = null;
+    public $idConcepto = null;
 
     /**
      * @var string $termino
+     * @Type("string")
      */
-    protected $termino = null;
+    public $termino = null;
 
     /**
      * @var string $tipoDescripcion
+     * @Type("string")
      */
-    protected $tipoDescripcion = null;
+    public $tipoDescripcion = null;
 
     /**
      * @var boolean $esSensibleAMayusculas
+     * @Type("string")
      */
-    protected $esSensibleAMayusculas = null;
+    public $esSensibleAMayusculas = null;
 
     /**
      * @var string $email
+     * @Type("string")
      */
-    protected $email = null;
+    public $email = null;
 
     /**
      * @var string $observacion
+     * @Type("string")
      */
-    protected $observacion = null;
+    public $observacion = null;
 
     /**
      * @var string $profesional
+     * @Type("string")
      */
-    protected $profesional = null;
+    public $profesional = null;
 
     /**
      * @var string $profesion
+     * @Type("string")
      */
-    protected $profesion = null;
+    public $profesion = null;
 
     /**
      * @var string $especialidad
+     * @Type("string")
      */
-    protected $especialidad = null;
+    public $especialidad = null;
 
     /**
      * @var string $subespecialidad
+     * @SerializedName("sub-especialidad")
+     * @Type("string")
      */
-    protected $subespecialidad = null;
+    public $subespecialidad = null;
 
     /**
      * @var string $categoria
+     * @Type("string")
      */
-    protected $categoria = null;
+    public $categoria = null;
 
     /**
      * @param string $establecimiento

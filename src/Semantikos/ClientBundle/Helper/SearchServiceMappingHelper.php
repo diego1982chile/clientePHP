@@ -7,6 +7,7 @@ use Semantikos\ClientBundle\API\PeticionBuscarTermino;
 use Semantikos\ClientBundle\API\PeticionConceptosPedibles;
 use Semantikos\ClientBundle\API\PeticionRefSetsPorIdDescripcion;
 use Semantikos\ClientBundle\API\PeticionConceptosPorRefSet;
+use Semantikos\ClientBundle\API\descriptionIDorConceptIDRequest;
 
 use Symfony\Component\DependencyInjection\ContainerInterface as Container;
  
@@ -83,6 +84,33 @@ class SearchServiceMappingHelper {
         $peticionConceptosPorRefSet->setIdEstablecimiento($parameters['idEstablecimiento']);        
         
         return array( 'peticionConceptosPorRefSet' => $peticionConceptosPorRefSet );
+    }
+    
+    public function mapWS026Parameters($parameters = null){                       
+        
+        $descriptionIDorConceptIDRequest = new descriptionIDorConceptIDRequest();
+        
+        $descriptionIDorConceptIDRequest->setDescription_id($parameters['descriptionId']);        
+        $descriptionIDorConceptIDRequest->setConcept_id($parameters['conceptId']);
+        $descriptionIDorConceptIDRequest->setStablishment_id($parameters['idEstablecimiento']);        
+        
+        return array( 'descripcionIDorConceptIDRequest' => $descriptionIDorConceptIDRequest );
+    }
+    
+    public function mapWS027Parameters($parameters = null){                       
+        
+        $descriptionIDorConceptIDRequest = new descriptionIDorConceptIDRequest();
+        
+        $descriptionIDorConceptIDRequest->setDescription_id($parameters['descriptionId']);        
+        $descriptionIDorConceptIDRequest->setConcept_id($parameters['conceptId']);
+        $descriptionIDorConceptIDRequest->setStablishment_id($parameters['idEstablecimiento']);        
+        
+        return array( 'DescripcionID' => $descriptionIDorConceptIDRequest );
+    }
+    
+    public function mapWS028Parameters($parameters = null){                                      
+        
+        return array( 'idDescripcion' => $parameters['descriptionId'] );
     }
         
 }                

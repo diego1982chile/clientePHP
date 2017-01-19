@@ -20,7 +20,8 @@ class AppKernel extends Kernel
             new JMS\AopBundle\JMSAopBundle(),
             new JMS\SecurityExtraBundle\JMSSecurityExtraBundle(),
             new Circle\RestClientBundle\CircleRestClientBundle(),            
-            new BeSimple\SoapBundle\BeSimpleSoapBundle()
+            new BeSimple\SoapBundle\BeSimpleSoapBundle(),
+            new JMS\SerializerBundle\JMSSerializerBundle(),
             
         ];
 

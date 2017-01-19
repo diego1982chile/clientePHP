@@ -89,7 +89,7 @@
             type: "POST",
             url: "{{ path('entrance_call') }}",
             data: data,            
-            timeout: 3000, // in milliseconds
+            timeout: 30000, // in milliseconds
             success: function(data) {
                 
                 unSuspend(form);                        

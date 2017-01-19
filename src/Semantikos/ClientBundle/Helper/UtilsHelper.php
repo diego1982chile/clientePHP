@@ -2,6 +2,10 @@
 namespace Semantikos\ClientBundle\Helper;
 
 use Symfony\Component\DependencyInjection\ContainerInterface as Container;
+
+use Symfony\Component\HttpFoundation\JsonResponse;
+
+use Semantikos\ClientBundle\Entity\RequestStatus;
  
 
 /**
@@ -44,6 +48,30 @@ class UtilsHelper {
         }  
         
         return substr($params_url, 0, -1);
+    }
+    
+    public function validate($operation = null, $params_array = null){                            
+        
+        $error = false;
+        $message = '';
+        
+        $requestStatus = new RequestStatus();
+        
+        switch($operation) {            
+            case 'ws026':
+            case 'ws027':
+            case 'ws010':
+                if($params_array['descriptionId'] == "" && $params_array['conceptId'] == "") {
+                    $error = true;
+                    $message = "Debe ingresar al menos un 'descriptionId' o un 'conceptId'";
+                }                                
+                break;             
+        }        
+        
+        $requestStatus->setError($error);
+        $requestStatus->setMessage($message);
+        
+        return $requestStatus;            
     }
     
 }                

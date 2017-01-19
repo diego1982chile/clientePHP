@@ -169,6 +169,36 @@
                 {{ form(SearchForms['ws025']) }}                                                                
                 {{ form_end(SearchForms['ws025']) }}                 
             </div>
+            <div id="ws026">        
+                <p class="list-group-item ui-widget-header active">
+                    WS-REQ-026: Obtener los CrossMap Indirectos por DescriptionID
+                </p>   
+                <br>                                     
+                {{ form_start(SearchForms['ws026']) }}        
+                {{ form_errors(SearchForms['ws026']) }}         
+                {{ form(SearchForms['ws026']) }}                                                                
+                {{ form_end(SearchForms['ws026']) }}                 
+            </div>
+            <div id="ws027">        
+                <p class="list-group-item ui-widget-header active">
+                    WS-REQ-027: Obtener los CrossMap Directos por DescriptionID
+                </p>   
+                <br>                                     
+                {{ form_start(SearchForms['ws027']) }}        
+                {{ form_errors(SearchForms['ws027']) }}         
+                {{ form(SearchForms['ws027']) }}                                                                
+                {{ form_end(SearchForms['ws027']) }}                 
+            </div>            
+            <div id="ws028">        
+                <p class="list-group-item ui-widget-header active">
+                    WS-REQ-028: Obtener Concepto por DescriptionID
+                </p>   
+                <br>                                     
+                {{ form_start(SearchForms['ws028']) }}        
+                {{ form_errors(SearchForms['ws028']) }}         
+                {{ form(SearchForms['ws028']) }}                                                                
+                {{ form_end(SearchForms['ws028']) }}                 
+            </div>
         </div>
         <div class="col-sm-6">            
             <div class="form-group">
@@ -218,7 +248,7 @@
             type: "POST",
             url: "{{ path('search_call') }}",
             data: data,            
-            timeout: 3000, // in milliseconds
+            timeout: 30000, // in milliseconds
             success: function(data) {
                 
                 unSuspend(form);                        
@@ -236,7 +266,7 @@
 
                 $('#response').text(jsonPretty);
                 
-                $(dialog).text(err);
+                $(dialog).html(err+":<br>"+request.responseText);
                 dialog.dialog('option','title',status)
                 dialog.dialog( "open" );                
             }
