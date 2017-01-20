@@ -1,5 +1,5 @@
 <?php
-namespace Semantikos\ClientBundle\Helper;
+namespace Semantikos\ClientBundle\Helper\Entrance;
 
 use Symfony\Component\DependencyInjection\ContainerInterface as Container;
 

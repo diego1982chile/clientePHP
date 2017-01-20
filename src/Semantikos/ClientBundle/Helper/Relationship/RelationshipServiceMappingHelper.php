@@ -1,5 +1,5 @@
 <?php
-namespace Semantikos\ClientBundle\Helper;
+namespace Semantikos\ClientBundle\Helper\Relationship;
 
 use Semantikos\ClientBundle\API\PeticionSugerenciasDeDescripciones;
 use Semantikos\ClientBundle\API\PeticionConceptosRelacionados;
@@ -47,7 +47,8 @@ class RelationshipServiceMappingHelper {
     public function mapWS011Parameters($parameters = null){                       
                         
         $peticionConceptosRelacionados = new PeticionConceptosRelacionados();
-                        
+        
+        $peticionConceptosRelacionadosPorCategoria->setCategoriaRelacion('Fármacos - Medicamento Clínico');
         $peticionConceptosRelacionados->setIdConcepto($parameters['conceptId']);        
         $peticionConceptosRelacionados->setIdDescripcion($parameters['descriptionId']);                
         

@@ -1,7 +1,8 @@
 <?php
 
-namespace Semantikos\ClientBundle\Helper;
+namespace Semantikos\ClientBundle\Helper\Search;
 
+use Semantikos\ClientBundle\API\PeticionBuscarTerminoSimple;
 use Semantikos\ClientBundle\API\PeticionPorCategoria;
 use Semantikos\ClientBundle\API\PeticionBuscarTermino;
 use Semantikos\ClientBundle\API\PeticionConceptosPedibles;
@@ -24,7 +25,18 @@ class SearchServiceMappingHelper {
     public function __construct(Container $container=null)
     {        
         $this->container = $container;
-    }         
+    }
+    
+    public function mapWS001Parameters($parameters = null){  
+                        
+        $peticionBuscarTerminoSimple = new PeticionBuscarTerminoSimple();
+        
+        $peticionBuscarTerminoSimple->setTermino($parameters['termino']);
+        $peticionBuscarTerminoSimple->setNombreCategoria(explode(',',$parameters['categorias']));
+        $peticionBuscarTerminoSimple->setNombreRefSet(explode(',',$parameters['refSets']));                                                                                      
+        
+        return array( 'peticionBuscarTermino' => $peticionBuscarTerminoSimple );
+    }
     
     public function mapWS002Parameters($parameters = null){                                    
         

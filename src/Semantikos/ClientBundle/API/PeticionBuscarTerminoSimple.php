@@ -23,9 +23,8 @@ class PeticionBuscarTerminoSimple
     /**
      * @param string $termino
      */
-    public function __construct($termino)
-    {
-      $this->termino = $termino;
+    public function __construct()
+    {      
     }
 
     /**

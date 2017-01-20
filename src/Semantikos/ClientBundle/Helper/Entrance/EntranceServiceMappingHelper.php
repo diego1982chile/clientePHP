@@ -1,5 +1,5 @@
 <?php
-namespace Semantikos\ClientBundle\Helper;
+namespace Semantikos\ClientBundle\Helper\Entrance;
 
 use Semantikos\ClientBundle\API\PeticionCodificacionDeNuevoTermino;
 

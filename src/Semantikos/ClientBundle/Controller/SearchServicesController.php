@@ -33,7 +33,8 @@ class SearchServicesController extends Controller
                         
         switch($operation) {
             case 'ws001':                
-                return $this->container->get('client.helper.search_clients')->callWS001($ws_params);                
+                //return $this->container->get('client.helper.search_clients')->callWS001($ws_params);                
+                $response = $this->container->get('client.helper.search_clients')->callWS001($ws_params);
                 break;     
             case 'ws002':
                 $response = $this->container->get('client.helper.search_clients')->callWS002($ws_params);

@@ -1,5 +1,5 @@
 <?php
-namespace Semantikos\ClientBundle\Helper;
+namespace Semantikos\ClientBundle\Helper\Search;
 
 use Symfony\Component\DependencyInjection\ContainerInterface as Container;
 
@@ -35,7 +35,8 @@ class SearchServiceClientsHelper {
         $this->soapClient = $builder->build();            
         $this->restClient = $this->container->get('circle.restclient');
     }
-                  
+      
+    /*
     public function callWS001($params_array = null){          
         
         //$url = "http://www.minsal.cl/semantikos/ws/ServicioDeBusqueda?";                
@@ -44,7 +45,7 @@ class SearchServiceClientsHelper {
         
         $url= $url.$this->container->get('client.helper.utils')->serializeParametersURL($params_array);                  
         
-        $response;          
+        $response;                          
         
         try {
             $response = $this->restClient->get($url);            
@@ -53,7 +54,21 @@ class SearchServiceClientsHelper {
         }                      
         
         return $response;        
-    }    
+    }   
+    */
+    
+    public function callWS001($params_array = null){          
+        
+        $peticion = $this->container->get('client.helper.search_mapping')->mapWS001Parameters($params_array);                                                                                                                                                                                                                                   
+        
+        try {            
+            $result = $this->soapClient->buscarTermino($peticion);                    
+        } catch (\SoapFault $soapFault) {
+            return json_encode($soapFault);
+        }
+                
+        return json_encode($result);       
+    } 
 
     public function callWS002($params_array = null){                                                                        
         
@@ -134,7 +149,7 @@ class SearchServiceClientsHelper {
                 $parameters['incluyeEstablecimiento'] = $params_array['incluyeEstablecimiento'];
                 $parameters['idEstablecimiento'] = $params_array['idEstablecimiento'];
                 
-                $peticion = $this->container->get('client.helper.mapping')->mapWS007Parameters($parameters);
+                $peticion = $this->container->get('client.helper.search_mapping')->mapWS007Parameters($parameters);
                 
                 $result = $this->soapClient->refSetsPorIdDescripcion($peticion);   
                 
@@ -152,7 +167,7 @@ class SearchServiceClientsHelper {
         $peticion = $this->container->get('client.helper.search_mapping')->mapWS022Parameters($params_array);                                                
         
         try {
-            $result = $this->soapClient->conceptosPorRefSet($peticion);                    
+            $result = $this->soapClient->descripcionesPreferidasPorRefset($peticion);                    
         } catch (\SoapFault $soapFault) {
             return json_encode($soapFault);
         }

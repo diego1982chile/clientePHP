@@ -23,31 +23,31 @@ services:
          tags:	
              - { name: kernel.event_listener, event: kernel.controller, method: onKernelController  }         
     client.helper.entrance_forms:
-        class:  Semantikos\ClientBundle\Helper\EntranceServiceFormsHelper
+        class:  Semantikos\ClientBundle\Helper\Entrance\EntranceServiceFormsHelper
         arguments: ["@form.factory", "@doctrine.orm.entity_manager", "@session", "@service_container"] 
     client.helper.entrance_clients:
-        class:  Semantikos\ClientBundle\Helper\EntranceServiceClientsHelper
+        class:  Semantikos\ClientBundle\Helper\Entrance\EntranceServiceClientsHelper
         arguments: ["@service_container"]   
     client.helper.entrance_mapping:
-        class:  Semantikos\ClientBundle\Helper\EntranceServiceMappingHelper
+        class:  Semantikos\ClientBundle\Helper\Entrance\EntranceServiceMappingHelper
         arguments: ["@service_container"]          
     client.helper.search_forms:
-        class:  Semantikos\ClientBundle\Helper\SearchServiceFormsHelper
+        class:  Semantikos\ClientBundle\Helper\Search\SearchServiceFormsHelper
         arguments: ["@form.factory", "@doctrine.orm.entity_manager", "@session", "@service_container"]         
     client.helper.search_clients:
-        class:  Semantikos\ClientBundle\Helper\SearchServiceClientsHelper
+        class:  Semantikos\ClientBundle\Helper\Search\SearchServiceClientsHelper
         arguments: ["@service_container"]   
     client.helper.search_mapping:
-        class:  Semantikos\ClientBundle\Helper\SearchServiceMappingHelper
+        class:  Semantikos\ClientBundle\Helper\Search\SearchServiceMappingHelper
         arguments: ["@service_container"]    
     client.helper.relationship_forms:
-        class:  Semantikos\ClientBundle\Helper\RelationshipServiceFormsHelper
+        class:  Semantikos\ClientBundle\Helper\Relationship\RelationshipServiceFormsHelper
         arguments: ["@form.factory", "@doctrine.orm.entity_manager", "@session", "@service_container"]                 
     client.helper.relationship_clients:
-        class:  Semantikos\ClientBundle\Helper\RelationshipServiceClientsHelper
+        class:  Semantikos\ClientBundle\Helper\Relationship\RelationshipServiceClientsHelper
         arguments: ["@service_container"]   
     client.helper.relationship_mapping:
-        class:  Semantikos\ClientBundle\Helper\RelationshipServiceMappingHelper
+        class:  Semantikos\ClientBundle\Helper\Relationship\RelationshipServiceMappingHelper
         arguments: ["@service_container"]            
     client.helper.utils:
         class:  Semantikos\ClientBundle\Helper\UtilsHelper

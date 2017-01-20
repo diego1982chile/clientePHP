@@ -1,5 +1,5 @@
 <?php
-namespace Semantikos\ClientBundle\Helper;
+namespace Semantikos\ClientBundle\Helper\Relationship;
 
 use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;

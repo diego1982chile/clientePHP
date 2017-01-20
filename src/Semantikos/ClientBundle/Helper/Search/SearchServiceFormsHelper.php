@@ -1,5 +1,5 @@
 <?php
-namespace Semantikos\ClientBundle\Helper;
+namespace Semantikos\ClientBundle\Helper\Search;
 
 use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
@@ -120,7 +120,7 @@ class SearchServiceFormsHelper {
         return $ws004Form = $this->formFactory->createNamedBuilder('ws007',FormType::class, null)
             ->setAction($this->container->get('router')->generate('search_call'))
             ->setMethod('POST')                    
-            ->add('descriptionID', TextType::class, array('required' => false))
+            ->add('descriptionId', TextType::class, array('required' => false))
             ->add('incluyeEstablecimiento', ChoiceType::class, array(
                   'choices' => array('Si' => true, 'No' => false), 
                   'choices_as_values' => true, 

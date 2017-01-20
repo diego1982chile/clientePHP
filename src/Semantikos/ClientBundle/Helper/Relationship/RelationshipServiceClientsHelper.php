@@ -1,5 +1,5 @@
 <?php
-namespace Semantikos\ClientBundle\Helper;
+namespace Semantikos\ClientBundle\Helper\Relationship;
 
 use Symfony\Component\DependencyInjection\ContainerInterface as Container;
 
@@ -79,7 +79,7 @@ class RelationshipServiceClientsHelper {
         $peticion = $this->container->get('client.helper.relationship_mapping')->mapWS011Parameters($params_array);                  
         
         try {
-            $result = $this->soapClient->obtenerMedicamentoClinico($peticion);                    
+            $result = $this->soapClient->conceptosRelacionadosChildren($peticion);                    
         } catch (\SoapFault $soapFault) {
             return json_encode($soapFault);
         }

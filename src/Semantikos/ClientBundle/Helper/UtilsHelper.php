@@ -58,6 +58,12 @@ class UtilsHelper {
         $requestStatus = new RequestStatus();
         
         switch($operation) {            
+            case 'ws004':
+                if($params_array['categorias'] == "" && $params_array['refSets'] == "") {
+                    $error = true;
+                    $message = "Debe ingresar al menos una 'Categoría' o un 'RefSet'";
+                }                                
+                break; 
             case 'ws026':
             case 'ws027':
             case 'ws010':
