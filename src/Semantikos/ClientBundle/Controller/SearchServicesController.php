@@ -27,8 +27,7 @@ class SearchServicesController extends Controller
         $requestStatus = $this->container->get('client.helper.utils')->validate($operation, $ws_params);                                
         
         if($requestStatus->isError()) {            
-            return new Response($requestStatus->getMessage(), 500);
-            return;
+            return new Response($requestStatus->getMessage(), 500);            
         }
                         
         switch($operation) {

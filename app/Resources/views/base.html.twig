@@ -14,68 +14,16 @@
     <title>{% block title %}Cliente WS Semantikos - PHP{% endblock %}</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="{{ asset('bundles/client/css/bootstrap.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('bundles/client/css/simple-sidebar.css') }}" rel="stylesheet">
-    <link href="{{ asset('bundles/client/css/font-awesome.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('bundles/semantikosclient/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('bundles/semantikosclient/css/simple-sidebar.css') }}" rel="stylesheet">
+    <link href="{{ asset('bundles/semantikosclient/css/font-awesome.min.css') }}" rel="stylesheet">
     
-    <!-- Jquery-ui core CSS -->    
-    <link href="{{ asset('bundles/client/css/jquery.qtip.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('bundles/client/css/jquery.dataTables.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('bundles/client/css/buttons.dataTables.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('bundles/client/css/dataTables.bootstrap.css') }}" rel="stylesheet">  
-    <link href="{{ asset('bundles/client/css/circle.css') }}" rel="stylesheet">        
-    <link href="{{ asset('bundles/client/js/jquery-ui/jquery-ui.min.css') }}" rel="stylesheet">      
-    <link href="{{ asset('bundles/client/css/jquery.timelineMe.css') }}" rel="stylesheet">
+    <!-- Jquery-ui core CSS -->                        
+    <link href="{{ asset('bundles/semantikosclient/js/jquery-ui/jquery-ui.min.css') }}" rel="stylesheet">          
     {% block stylesheets %}{% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('bundles/monitor/images/logofonasa.png') }}" />
+        <link rel="icon" type="image/x-icon" href="{{ asset('bundles/semantikosclient/images/logominsal.png') }}" />
         <style type="text/css">
-            .qtip-content {
-                font-size:14px;
-                padding: 10px
-            }
-            
-            .cols {
-                text-align: center;
-                /*font-size:13px;
-                font-family: Arial, Helvetica, sans-serif;*/
-            }
-            
-            .fillRate{
-                padding: 1em !important;
-                margin: 0px !important;                
-            }
-            
-            /**
-            * Progress bars with centered text
-            */
-
-           .progress {
-               position: relative;
-               margin-bottom: 0px;
-               border: 1px solid black;               
-           }
-                                 
-           /*
-           .btn{
-               border: 1px solid black;               
-           }
-           */
-
-            .progress span.black-font {
-                position: absolute;
-                display: block;
-                width: 100%;
-                color: black;
-             }
-             
-            .toolbar{
-                float: right;                
-            }
-                  
-            th:after {
-                content: none !important;
-             }
-             
+   
              .navbar .divider-vertical {
                 height: 50px;
                 margin: 0 9px;
@@ -113,99 +61,7 @@
                 display: block;
                 height: 0;
                 overflow-y: hidden;
-            }
-            
-            fieldset.scheduler-border {
-                border: 1px groove #ddd !important;
-                padding: 0 1.4em 1.4em 1.4em !important;
-                margin: 0 0 1.5em 0 !important;
-                -webkit-box-shadow:  0px 0px 0px 0px #000;
-                        box-shadow:  0px 0px 0px 0px #000;
-            }
-
-            legend.scheduler-border {
-                font-size: 1.2em !important;
-                font-weight: bold !important;
-                text-align: left !important;
-
-            }            
-            
-            legend.scheduler-border {
-                width:inherit; /* Or auto */
-                padding:0 10px; /* To give a bit of padding on the left and right */
-                border-bottom:none;
-            }
-            
-            .table td{
-                border-top: 0px !important;
-            }
-            
-            .table th{
-                border-top: 0px !important;
-            }
-            
-            .dropdown-menu>li
-            {	position:relative;
-                    -webkit-user-select: none; /* Chrome/Safari */        
-                    -moz-user-select: none; /* Firefox */
-                    -ms-user-select: none; /* IE10+ */
-                    /* Rules below not implemented in browsers yet */
-                    -o-user-select: none;
-                    user-select: none;
-                    cursor:pointer;
-            }
-            .dropdown-menu .sub-menu {
-                left: 100%;
-                position: absolute;
-                top: 0;
-                display:none;
-                margin-top: -1px;
-                border-top-left-radius:0;
-                border-bottom-left-radius:0;
-                border-left-color:#fff;
-                box-shadow:none;
-            }
-            .right-caret:after,.left-caret:after
-             {	content:"";
-                border-bottom: 5px solid transparent;
-                border-top: 5px solid transparent;
-                display: inline-block;
-                height: 0;
-                vertical-align: middle;
-                width: 0;
-                margin-left:5px;
-            }
-            .right-caret:after
-            {	
-                /*border-left: 5px solid #ffaf46;*/
-                border-left: 5px solid #0A0931;                
-            }
-            .left-caret:after
-            {	border-right: 5px solid #0A0931;                
-            }    
-            
-            .htmlTable2
-            {
-                BORDER-RIGHT: 2pt solid;
-                BORDER-TOP: 2pt solid !important;
-                BORDER-LEFT: 2pt solid;
-                BACKGROUND-COLOR: #D2EAF9;
-                border-color: #0C6CB8;
-                BORDER-BOTTOM: 2pt solid;
-            }
-            
-            .htmltablatitleL
-            {
-                BORDER-RIGHT: #38A0DC 1pt solid;
-                BORDER-TOP: #38A0DC 1pt solid;
-                FONT: 10pt Arial, Verdana, Tahoma, 'MS Sans Serif';
-                TEXT-TRANSFORM: none;
-                BORDER-LEFT: #38A0DC 1pt solid;
-                COLOR: white;
-                BORDER-BOTTOM: #38A0DC 1pt solid;
-                BACKGROUND-COLOR: #38A0DC;
-                TEXT-DECORATION: none
-            }
+            }         
                                     
             input.text { margin-bottom:12px; width:95%; padding: .4em; }            
             
@@ -247,13 +103,7 @@
             
             .loader {
                 margin-left:8px;
-            }
-            
-            .save {
-                margin-left:8px;
-                width: 15px;
-                height: 15px;
-            }
+            }            
 
             .myTitleClass .ui-dialog-titlebar {
                 background:#337ab7;
@@ -287,7 +137,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a target="_blank" class="navbar-brand" href="http://www.minsal.cl"><img style="max-width:100%;max-height:100%;" src="{{ asset('bundles/client/images/MINSAL-CENABAST.png') }}" alt="MINSAL"></a>
+          <a target="_blank" class="navbar-brand" href="http://www.minsal.cl"><img style="max-width:100%;max-height:100%;" src="{{ asset('bundles/semantikosclient/images/MINSAL-CENABAST.png') }}" alt="MINSAL"></a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">                        
@@ -329,27 +179,10 @@
         </div>
     </div>
     
-    <script src="{{ asset('bundles/client/js/jquery-1.12.1.min.js') }}"></script>
-    <script src="{{ asset('bundles/client/js/bootstrap.min.js') }}"></script>
-    <script src="{{ asset('bundles/client/js/jquery-ui/jquery-ui.min.js') }}"></script>
-    <script src="{{ asset('bundles/client/js/datepicker-es.js') }}"></script>
-    <script src="{{ asset('bundles/client/js/jquery.qtip.min.js') }}"></script>
-    <script src="{{ asset('bundles/client/js/imagesloaded.pkg.min.js') }}"></script>
-    <script src="{{ asset('bundles/client/js/jquery.dataTables.min.js') }}"></script>
-    <script src="{{ asset('bundles/client/js/dataTables.jqueryui.min.js') }}"></script>
-    <script src="{{ asset('bundles/client/js/dataTables.bootstrap.min.js') }}"></script>    
-    <script src="{{ asset('bundles/client/js/dataTables.buttons.min.js') }}"></script>
-    <script src="{{ asset('bundles/client/js/buttons.flash.min.js') }}"></script>
-    <script src="{{ asset('bundles/client/js/jszip.min.js') }}"></script>
-    <script src="{{ asset('bundles/client/js/pdfmake.min.js') }}"></script>
-    <script src="{{ asset('bundles/client/js/vfs_fonts.js') }}"></script>
-    <script src="{{ asset('bundles/client/js/buttons.html5.min.js') }}"></script>
-    <script src="{{ asset('bundles/client/js/buttons.print.min.js') }}"></script>        
-    <script src="{{ asset('bundles/client/js/highcharts.js') }}"></script>
-    <script src="{{ asset('bundles/client/js/highcharts-3d.js') }}"></script>
-    <script src="{{ asset('bundles/client/js/modules/exporting.js') }}"></script>
-    <script src="{{ asset('bundles/client/js/modules/drilldown.js') }}"></script>                
-    <script src="{{ asset('bundles/client/js/jquery.timelineMe.js') }}"></script>        
+    <script src="{{ asset('bundles/semantikosclient/js/jquery-1.12.1.min.js') }}"></script>
+    <script src="{{ asset('bundles/semantikosclient/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('bundles/semantikosclient/js/jquery-ui/jquery-ui.min.js') }}"></script>                   
+    
     {% block javascripts %}
     <script>             
     </script>

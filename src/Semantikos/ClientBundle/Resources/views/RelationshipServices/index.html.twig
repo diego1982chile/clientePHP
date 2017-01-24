@@ -27,7 +27,7 @@
 
 {% block body %}        
 
-    <div class="row">
+    <div id="form" class="row" style="display: none">
         <div class="col-sm-6">    
             <div id="ws006">
                 <p class="list-group-item ui-widget-header active">
@@ -91,8 +91,7 @@
         </div>
     </div>
  
-    <div id="dialog" title="Basic dialog">
-        <p>This is the default dialog which is useful for displaying information. The dialog window can be moved, resized and closed with the 'x' icon.</p>
+    <div id="dialog" title="Basic dialog">        
     </div>
               
 {% endblock %}
@@ -111,6 +110,10 @@
     $( function() {    
         init();      
     });            
+    
+    $( document ).ready(function() {
+        $("#form").show();
+    });  
     
     $forms.on( "submit", function( event ) {               
         
@@ -159,7 +162,7 @@
     });
     
     function suspend(form){         
-        $(form).find('button').append('<img class="loader" alt="" style=";margin-left:10px" src="{{ asset('bundles/client/images/loader-minitrans.gif') }}">');                    
+        $(form).find('button').append('<img class="loader" alt="" style=";margin-left:10px" src="{{ asset('bundles/semantikosclient/images/loader-minitrans.gif') }}">');                    
         $(form).find('button').attr('disabled',true);        
         $('#response').text("");
     }

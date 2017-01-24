@@ -20,9 +20,7 @@ class AppKernel extends Kernel
             new JMS\AopBundle\JMSAopBundle(),
             new JMS\SecurityExtraBundle\JMSSecurityExtraBundle(),
             new Circle\RestClientBundle\CircleRestClientBundle(),            
-            new BeSimple\SoapBundle\BeSimpleSoapBundle(),
-            new JMS\SerializerBundle\JMSSerializerBundle(),
-            
+            new BeSimple\SoapBundle\BeSimpleSoapBundle(),                        
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

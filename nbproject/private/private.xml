@@ -3,32 +3,57 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/xampp/htdocs/ClientePHP/src/Semantikos/ClientBundle/EventListener/RequestListener.php</file>
-            <file>file:/C:/xampp/htdocs/ClientePHP/app/config/config.yml</file>
-            <file>file:/C:/xampp/htdocs/ClientePHP/src/Semantikos/ClientBundle/Controller/EntranceServicesController.php</file>
+            <file>file:/C:/xampp/htdocs/ClientePHP/src/Semantikos/ClientBundle/API/conceptosPorCategoriaResponse.php</file>
+            <file>file:/C:/xampp/htdocs/ClientePHP/src/Semantikos/ClientBundle/API/descripcionesSugeridas.php</file>
+            <file>file:/C:/xampp/htdocs/ClientePHP/src/Semantikos/ClientBundle/API/PeticionConceptosRelacionados.php</file>
             <file>file:/C:/xampp/htdocs/ClientePHP/app/config/routing.yml</file>
-            <file>file:/C:/xampp/htdocs/ClientePHP/app/config/services.yml</file>
-            <file>file:/C:/xampp/htdocs/ClientePHP/app/Resources/FOSUserBundle/views/Security/login.html.twig</file>
+            <file>file:/C:/xampp/htdocs/ClientePHP/src/Semantikos/ClientBundle/API/RespuestaRefSets.php</file>
+            <file>file:/C:/xampp/htdocs/ClientePHP/src/Semantikos/ClientBundle/Helper/Entrance/EntranceServiceFormsHelper.php</file>
+            <file>file:/C:/xampp/htdocs/ClientePHP/src/Semantikos/ClientBundle/API/Stub.php</file>
+            <file>file:/C:/xampp/htdocs/ClientePHP/src/Semantikos/ClientBundle/API/PeticionConceptosPorRefSet.php</file>
             <file>file:/C:/xampp/htdocs/ClientePHP/src/Semantikos/ClientBundle/Controller/SearchServicesController.php</file>
             <file>file:/C:/xampp/htdocs/ClientePHP/app/Resources/views/default/index.html.twig</file>
-            <file>file:/C:/xampp/htdocs/ClientePHP/src/Semantikos/ClientBundle/EventListener/LoginSuccessHandler.php</file>
-            <file>file:/C:/xampp/htdocs/ClientePHP/src/Semantikos/ClientBundle/Entity/Category.php</file>
-            <file>file:/C:/xampp/htdocs/ClientePHP/app/AppKernel.php</file>
+            <file>file:/C:/xampp/htdocs/ClientePHP/src/Semantikos/ClientBundle/Entity/User.php</file>
             <file>file:/C:/xampp/htdocs/ClientePHP/src/Semantikos/ClientBundle/SemantikosClientBundle.php</file>
+            <file>file:/C:/xampp/htdocs/ClientePHP/app/AppKernel.php</file>
             <file>file:/C:/xampp/htdocs/ClientePHP/src/Semantikos/ClientBundle/Controller/RelationshipServicesController.php</file>
+            <file>file:/C:/xampp/htdocs/ClientePHP/src/Semantikos/ClientBundle/API/PeticionBuscarTermino.php</file>
             <file>file:/C:/xampp/htdocs/ClientePHP/tests/SemantikosClientBundle/Controller/DefaultControllerTest.php</file>
-            <file>file:/C:/xampp/htdocs/ClientePHP/src/Semantikos/ClientBundle/Controller/DefaultController.php</file>
-            <file>file:/C:/xampp/htdocs/ClientePHP/composer.json</file>
+            <file>file:/C:/xampp/htdocs/ClientePHP/src/Semantikos/ClientBundle/Helper/Search/SearchServiceMappingHelper.php</file>
+            <file>file:/C:/xampp/htdocs/ClientePHP/src/Semantikos/ClientBundle/Helper/Relationship/RelationshipServiceClientsHelper.php</file>
+            <file>file:/C:/xampp/htdocs/ClientePHP/src/Semantikos/ClientBundle/DataFixtures/ORM/LoadFixtures.php</file>
+            <file>file:/C:/xampp/htdocs/ClientePHP/src/Semantikos/ClientBundle/Twig/FormsExtension.php</file>
+            <file>file:/C:/xampp/htdocs/ClientePHP/src/Semantikos/ClientBundle/API/Atributo.php</file>
+            <file>file:/C:/xampp/htdocs/ClientePHP/src/Semantikos/ClientBundle/API/PeticionRefSetsPorIdDescripcion.php</file>
+            <file>file:/C:/xampp/htdocs/ClientePHP/src/Semantikos/ClientBundle/API/PeticionPorCategoria.php</file>
+            <file>file:/C:/xampp/htdocs/ClientePHP/src/Semantikos/ClientBundle/API/RespuestaConceptosPorCategoria.php</file>
+            <file>file:/C:/xampp/htdocs/ClientePHP/app/config/config.yml</file>
+            <file>file:/C:/xampp/htdocs/ClientePHP/src/Semantikos/ClientBundle/Entity/RequestStatus.php</file>
+            <file>file:/C:/xampp/htdocs/ClientePHP/src/Semantikos/ClientBundle/Controller/EntranceServicesController.php</file>
+            <file>file:/C:/xampp/htdocs/ClientePHP/src/Semantikos/ClientBundle/API/PeticionConceptosRelacionadosPorCategoria.php</file>
+            <file>file:/C:/xampp/htdocs/ClientePHP/src/Semantikos/ClientBundle/Helper/Search/SearchServiceFormsHelper.php</file>
+            <file>file:/C:/xampp/htdocs/ClientePHP/src/Semantikos/ClientBundle/Resources/views/RelationshipServices/index.html.twig</file>
+            <file>file:/C:/xampp/htdocs/ClientePHP/app/Resources/FOSUserBundle/views/Security/login.html.twig</file>
+            <file>file:/C:/xampp/htdocs/ClientePHP/src/Semantikos/ClientBundle/API/PeticionConceptosPedibles.php</file>
+            <file>file:/C:/xampp/htdocs/ClientePHP/src/Semantikos/ClientBundle/API/Concepto.php</file>
+            <file>file:/C:/xampp/htdocs/ClientePHP/src/Semantikos/ClientBundle/Helper/Entrance/EntranceServiceMappingHelper.php</file>
+            <file>file:/C:/xampp/htdocs/ClientePHP/src/Semantikos/ClientBundle/Helper/UtilsHelper.php</file>
+            <file>file:/C:/xampp/htdocs/ClientePHP/src/Semantikos/ClientBundle/API/ServicioDeBusqueda.php</file>
+            <file>file:/C:/xampp/htdocs/ClientePHP/src/Semantikos/ClientBundle/API/PeticionBuscarTerminoSimple.php</file>
+            <file>file:/C:/xampp/htdocs/ClientePHP/src/Semantikos/ClientBundle/Helper/Relationship/RelationshipServiceMappingHelper.php</file>
+            <file>file:/C:/xampp/htdocs/ClientePHP/src/Semantikos/ClientBundle/API/PeticionPorCategoriaStub.php</file>
+            <file>file:/C:/xampp/htdocs/ClientePHP/src/Semantikos/ClientBundle/Helper/Entrance/EntranceServiceClientsHelper.php</file>
             <file>file:/C:/xampp/htdocs/ClientePHP/src/Semantikos/ClientBundle/Resources/views/SearchServices/index.html.twig</file>
             <file>file:/C:/xampp/htdocs/ClientePHP/app/Resources/FOSUserBundle/views/layout.html.twig</file>
+            <file>file:/C:/xampp/htdocs/ClientePHP/src/Semantikos/ClientBundle/Helper/Search/SearchServiceClientsHelper.php</file>
             <file>file:/C:/xampp/htdocs/ClientePHP/app/Resources/views/base.html.twig</file>
             <file>file:/C:/xampp/htdocs/ClientePHP/src/Semantikos/ClientBundle/EventListener/ControllerListener.php</file>
-            <file>file:/C:/xampp/htdocs/ClientePHP/src/Semantikos/ClientBundle/Helper/ClientsHelper.php</file>
-            <file>file:/C:/xampp/htdocs/ClientePHP/src/Semantikos/ClientBundle/Twig/FormsExtension.php</file>
-            <file>file:/C:/xampp/htdocs/ClientePHP/src/Semantikos/ClientBundle/Helper/FormsHelper.php</file>
+            <file>file:/C:/xampp/htdocs/ClientePHP/src/Semantikos/ClientBundle/API/PeticionCodificacionDeNuevoTermino.php</file>
+            <file>file:/C:/xampp/htdocs/ClientePHP/src/Semantikos/ClientBundle/Resources/views/EntranceServices/index.html.twig</file>
+            <file>file:/C:/xampp/htdocs/ClientePHP/src/Semantikos/ClientBundle/API/descriptionIDorConceptIDRequest.php</file>
+            <file>file:/C:/xampp/htdocs/ClientePHP/src/Semantikos/ClientBundle/Helper/Relationship/RelationshipServiceFormsHelper.php</file>
+            <file>file:/C:/xampp/htdocs/ClientePHP/src/Semantikos/ClientBundle/API/PeticionSugerenciasDeDescripciones.php</file>
             <file>file:/C:/xampp/htdocs/ClientePHP/src/Semantikos/ClientBundle/Resources/config/routing.yml</file>
-            <file>file:/C:/xampp/htdocs/ClientePHP/src/Semantikos/ClientBundle/EventListener/LogoutHandler.php</file>
-            <file>file:/C:/xampp/htdocs/ClientePHP/src/Semantikos/ClientBundle/EventListener/ResponseListener.php</file>
             <file>file:/C:/xampp/htdocs/ClientePHP/src/Semantikos/ClientBundle/Resources/config/services.yml</file>
         </group>
     </open-files>
