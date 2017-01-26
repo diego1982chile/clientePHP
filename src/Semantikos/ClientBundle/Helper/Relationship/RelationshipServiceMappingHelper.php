@@ -47,8 +47,27 @@ class RelationshipServiceMappingHelper {
     public function mapWS011Parameters($parameters = null){                       
                         
         $peticionConceptosRelacionados = new PeticionConceptosRelacionados();
+                
+        $peticionConceptosRelacionados->setIdConcepto($parameters['conceptId']);        
+        $peticionConceptosRelacionados->setIdDescripcion($parameters['descriptionId']);                
         
-        $peticionConceptosRelacionadosPorCategoria->setCategoriaRelacion('Fármacos - Medicamento Clínico');
+        return array( 'peticionConceptosRelacionados' => $peticionConceptosRelacionados );
+    }
+    
+    public function mapWS012Parameters($parameters = null){                       
+                        
+        $peticionConceptosRelacionados = new PeticionConceptosRelacionados();
+                
+        $peticionConceptosRelacionados->setIdConcepto($parameters['conceptId']);        
+        $peticionConceptosRelacionados->setIdDescripcion($parameters['descriptionId']);                
+        
+        return array( 'peticionConceptosRelacionados' => $peticionConceptosRelacionados );
+    }
+    
+    public function mapWS013Parameters($parameters = null){                       
+                        
+        $peticionConceptosRelacionados = new PeticionConceptosRelacionados();
+                
         $peticionConceptosRelacionados->setIdConcepto($parameters['conceptId']);        
         $peticionConceptosRelacionados->setIdDescripcion($parameters['descriptionId']);                
         

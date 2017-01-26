@@ -6,10 +6,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface as Container;
 use Symfony\Component\HttpFoundation\Response;
 
 use Semantikos\ClientBundle\API\RespuestaRefSets;
-
-use JMS\Serializer\SerializerBuilder;
  
-
 /**
  * Description of FiltersHelper
  *
@@ -50,9 +47,7 @@ class EntranceServiceClientsHelper {
     
     public function callWS031($params_array = null){                                                                                                                                                                                                                                                                                                                           
         
-        $peticion = $this->container->get('client.helper.entrance_mapping')->mapWS031Parameters($params_array);                
-        
-        $serializer = SerializerBuilder::create()->build();                                                                
+        $peticion = $this->container->get('client.helper.entrance_mapping')->mapWS031Parameters($params_array);                                                                                              
         
         try {            
             $result = $this->soapClient->codificacionDeNuevoTermino($peticion);                    

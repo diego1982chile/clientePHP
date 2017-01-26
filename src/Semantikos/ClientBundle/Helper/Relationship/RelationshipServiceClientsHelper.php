@@ -7,9 +7,6 @@ use Symfony\Component\HttpFoundation\Response;
 
 use Semantikos\ClientBundle\API\RespuestaRefSets;
 
-use JMS\Serializer\SerializerBuilder;
- 
-
 /**
  * Description of FiltersHelper
  *
@@ -79,7 +76,8 @@ class RelationshipServiceClientsHelper {
         $peticion = $this->container->get('client.helper.relationship_mapping')->mapWS011Parameters($params_array);                  
         
         try {
-            $result = $this->soapClient->conceptosRelacionadosChildren($peticion);                    
+            //$result = $this->soapClient->conceptosRelacionadosChildren($peticion);                    
+            $result = $this->soapClient->obtenerMedicamentoClinico($peticion);                    
         } catch (\SoapFault $soapFault) {
             return json_encode($soapFault);
         }
@@ -99,5 +97,59 @@ class RelationshipServiceClientsHelper {
                 
         return json_encode($result);
     }
+    
+    public function callWS012($params_array = null){                                                                                                                                                                                                                                                                                                                           
+        
+        $peticion = $this->container->get('client.helper.relationship_mapping')->mapWS012Parameters($params_array);                  
+        
+        try {
+            //$result = $this->soapClient->conceptosRelacionadosChildren($peticion);             
+            $result = $this->soapClient->obtenerMedicamentoBasico($peticion);                    
+        } catch (\SoapFault $soapFault) {
+            return json_encode($soapFault);
+        }
+                
+        return json_encode($result);
+    }
+    
+    public function callWS012_01($params_array = null){                                                                                                                                                                                                                                                                                                                           
+        
+        $peticion = $this->container->get('client.helper.relationship_mapping')->mapWS012Parameters($params_array);                  
+        
+        try {
+            $result = $this->soapClient->obtenerMedicamentoBasicoLite($peticion);                    
+        } catch (\SoapFault $soapFault) {
+            return json_encode($soapFault);
+        }
+                
+        return json_encode($result);
+    }
+    
+    public function callWS013($params_array = null){                                                                                                                                                                                                                                                                                                                           
+        
+        $peticion = $this->container->get('client.helper.relationship_mapping')->mapWS013Parameters($params_array);                  
+        
+        try {
+            //$result = $this->soapClient->conceptosRelacionadosChildren($peticion);             
+            $result = $this->soapClient->obtenerProductoComercial($peticion);                    
+        } catch (\SoapFault $soapFault) {
+            return json_encode($soapFault);
+        }
+                
+        return json_encode($result);
+    }
+    
+    public function callWS013_01($params_array = null){                                                                                                                                                                                                                                                                                                                           
+        
+        $peticion = $this->container->get('client.helper.relationship_mapping')->mapWS013Parameters($params_array);                  
+        
+        try {
+            $result = $this->soapClient->obtenerProductoComercialLite($peticion);                    
+        } catch (\SoapFault $soapFault) {
+            return json_encode($soapFault);
+        }
+                
+        return json_encode($result);
+    }    
     
 }                

@@ -132,5 +132,113 @@ class RelationshipServiceFormsHelper {
             ->getForm()->createView();                    
     }
     
+    public function getWS012Form(){                                                
+        
+        return $ws012Form = $this->formFactory->createNamedBuilder('ws012', FormType::class, null)                      
+            ->setAction($this->container->get('router')->generate('relationship_call'))                
+            ->setMethod('POST')                                      
+            ->add('descriptionId', TextType::class, array(
+                  'required' => false,                
+                  'attr' => array( 'placeholder' => "ID de Descripción de Medicamento Clínico")  
+            ))
+            ->add('conceptId', TextType::class, array(
+                  'required' => false,
+                  'attr' => array( 'placeholder' => "ID Concepto de Medicamento Clínico")
+            ))             
+            ->add('idEstablecimiento', NumberType::class)            
+            ->add('call', SubmitType::class, array('label' => 'Invocar WS', 'attr' => array('class' => 'btn btn-primary')))                                  
+            ->getForm()->createView();                    
+    }
+    
+    public function getWS012_01Form(){                                
+        
+        return $ws012_01Form = $this->formFactory->createNamedBuilder('ws012_01', FormType::class, null)                      
+            ->setAction($this->container->get('router')->generate('relationship_call'))                
+            ->setMethod('POST')                                      
+            ->add('descriptionId', TextType::class, array(
+                  'required' => false,                
+                  'attr' => array( 'placeholder' => "ID de Descripción de Medicamento Clínico")  
+            ))
+            ->add('conceptId', TextType::class, array(
+                  'required' => false,
+                  'attr' => array( 'placeholder' => "ID Concepto de Medicamento Clínico")
+            ))             
+            ->add('idEstablecimiento', NumberType::class)            
+            ->add('call', SubmitType::class, array('label' => 'Invocar WS', 'attr' => array('class' => 'btn btn-primary')))                                  
+            ->getForm()->createView();                    
+    }
+    
+    public function getWS013Form(){                                                
+        
+        return $ws013Form = $this->formFactory->createNamedBuilder('ws013', FormType::class, null)                      
+            ->setAction($this->container->get('router')->generate('relationship_call'))                
+            ->setMethod('POST')                                      
+            ->add('descriptionId', TextType::class, array(
+                  'required' => false,                
+                  'attr' => array( 'placeholder' => "ID de Descripción de Medicamento Clínico")  
+            ))
+            ->add('conceptId', TextType::class, array(
+                  'required' => false,
+                  'attr' => array( 'placeholder' => "ID Concepto de Medicamento Clínico")
+            ))             
+            ->add('idEstablecimiento', NumberType::class)            
+            ->add('call', SubmitType::class, array('label' => 'Invocar WS', 'attr' => array('class' => 'btn btn-primary')))                                  
+            ->getForm()->createView();                    
+    }
+    
+    public function getWS013_01Form(){                                
+        
+        return $ws013_01Form = $this->formFactory->createNamedBuilder('ws013_01', FormType::class, null)                      
+            ->setAction($this->container->get('router')->generate('relationship_call'))                
+            ->setMethod('POST')                                      
+            ->add('descriptionId', TextType::class, array(
+                  'required' => false,                
+                  'attr' => array( 'placeholder' => "ID de Descripción de Medicamento Clínico")  
+            ))
+            ->add('conceptId', TextType::class, array(
+                  'required' => false,
+                  'attr' => array( 'placeholder' => "ID Concepto de Medicamento Clínico")
+            ))             
+            ->add('idEstablecimiento', NumberType::class)            
+            ->add('call', SubmitType::class, array('label' => 'Invocar WS', 'attr' => array('class' => 'btn btn-primary')))                                  
+            ->getForm()->createView();                    
+    }
+    
+    public function getWS014Form(){                                                
+        
+        return $ws014Form = $this->formFactory->createNamedBuilder('ws014', FormType::class, null)                      
+            ->setAction($this->container->get('router')->generate('relationship_call'))                
+            ->setMethod('POST')                                      
+            ->add('descriptionId', TextType::class, array(
+                  'required' => false,                
+                  'attr' => array( 'placeholder' => "ID de Descripción de Medicamento Clínico")  
+            ))
+            ->add('conceptId', TextType::class, array(
+                  'required' => false,
+                  'attr' => array( 'placeholder' => "ID Concepto de Medicamento Clínico")
+            ))             
+            ->add('idEstablecimiento', NumberType::class)            
+            ->add('call', SubmitType::class, array('label' => 'Invocar WS', 'attr' => array('class' => 'btn btn-primary')))                                  
+            ->getForm()->createView();                    
+    }
+    
+    public function getWS014_01Form(){                                
+        
+        return $ws014_01Form = $this->formFactory->createNamedBuilder('ws014_01', FormType::class, null)                      
+            ->setAction($this->container->get('router')->generate('relationship_call'))                
+            ->setMethod('POST')                                      
+            ->add('descriptionId', TextType::class, array(
+                  'required' => false,                
+                  'attr' => array( 'placeholder' => "ID de Descripción de Medicamento Clínico")  
+            ))
+            ->add('conceptId', TextType::class, array(
+                  'required' => false,
+                  'attr' => array( 'placeholder' => "ID Concepto de Medicamento Clínico")
+            ))             
+            ->add('idEstablecimiento', NumberType::class)            
+            ->add('call', SubmitType::class, array('label' => 'Invocar WS', 'attr' => array('class' => 'btn btn-primary')))                                  
+            ->getForm()->createView();                    
+    }
+    
     
 }                
